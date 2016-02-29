@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6590E586-EC0A-4987-891E-9534667632E1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kotogeki</RootNamespace>
+    <AssemblyName>Kotogeki</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameCore\GameManager.cs" />
+    <Compile Include="GameCore\GameObjects\GameObject.cs" />
+    <Compile Include="GameCore\GameObjects\Items\Bullets\Bullet.cs" />
+    <Compile Include="GameCore\GameObjects\Items\Bullets\FakeBullet.cs" />
+    <Compile Include="GameCore\GameObjects\Items\Bullets\KanaBullet.cs" />
+    <Compile Include="GameCore\GameObjects\Items\Bullets\LinerBullet.cs" />
+    <Compile Include="GameCore\GameObjects\Items\Item.cs" />
+    <Compile Include="GameCore\GameObjects\Soldiers\Enemy.cs" />
+    <Compile Include="GameCore\GameObjects\Soldiers\Muzzle.cs" />
+    <Compile Include="GameCore\GameObjects\Soldiers\Player.cs" />
+    <Compile Include="GameCore\GameObjects\Soldiers\PlayerGirl.cs" />
+    <Compile Include="GameCore\GameObjects\Soldiers\Soldier.cs" />
+    <Compile Include="GameCore\Helper\FontTools\FontBlank.cs" />
+    <Compile Include="GameCore\Helper\FontTools\FontImageCreator.cs" />
+    <Compile Include="GameCore\Helper\MismatchCounter\MismatchCounter.cs" />
+    <Compile Include="GameCore\Helper\MismatchCounter\SimpleCounter.cs" />
+    <Compile Include="GameCore\Helper\Music\EventCounter.cs" />
+    <Compile Include="GameCore\Helper\Music\Music.cs" />
+    <Compile Include="GameCore\Helper\Music\PlayList.cs" />
+    <Compile Include="GameCore\Helper\RandamNumNotRepeat.cs" />
+    <Compile Include="GameCore\Helper\RingBuffer\LoopCounter.cs" />
+    <Compile Include="GameCore\Helper\RingBuffer\RingBuffer.cs" />
+    <Compile Include="GameCore\Helper\RomanConverter\JpRoman.cs" />
+    <Compile Include="GameCore\Helper\RomanConverter\RomanAutomaton.cs" />
+    <Compile Include="GameCore\Helper\RomanConverter\JpRomanTable.cs" />
+    <Compile Include="GameCore\Helper\Trajectory.cs" />
+    <Compile Include="GameCore\TypingData\TypingDataReader.cs" />
+    <Compile Include="GameCore\TypingData\TypingSentence.cs" />
+    <Compile Include="GameCore\UpdateEventArg.cs" />
+    <Compile Include="GameMainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameMainWindow.Designer.cs">
+      <DependentUpon>GameMainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GameMainWindow.resx">
+      <DependentUpon>GameMainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="変更履歴.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
